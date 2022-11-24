@@ -6,8 +6,12 @@ const {
     deleteEntry,
     updateEntry
 } = require('../controllers/healthController')
+const requireAuth = require('../middleware/requireAuth')
 
+//require auth for all healthData routes
 const router = express.Router()
+
+router.use(requireAuth)
 
 router.get('/', getEntries)
 
