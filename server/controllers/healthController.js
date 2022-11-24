@@ -3,8 +3,10 @@ const mongoose = require('mongoose')
 
 //get all health entries
 const getEntries = async (req, res) => {
+    const user_id = req.user_id
+
     //newest entry at the top
-    const entries = await Health.find({}).sort({createdAt: -1})
+    const entries = await Health.find({user_id}).sort({createdAt: -1})
 
     res.status(200).json(entries)
 }
@@ -30,7 +32,27 @@ const getEntry = async (req, res) => {
 const createEntry = async (req, res) => {
     const {age, height, weight, sex} = req.body
 
+    let emptyFields = []
+
+    if (!age){
+        emptyFields.push('age')
+    }
+    if (!height){
+        emptyFields.push('height')
+    }
+    if (!weight){
+        emptyFields.push('weight')
+    }
+    if (!sex){
+        emptyFields.push('sex')
+    }
+
+    if (emptyFields.length > 0) {
+        return res.status(400).json({error: 'Please fill in all the fields', emptyFields})
+    }
+
     try {
+        const user_id = req.user_id
         const health = await Health.create({age, height, weight, sex})
         res.status(200).json(health)
     } catch (error) {
