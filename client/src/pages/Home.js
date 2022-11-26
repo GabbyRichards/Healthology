@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useAuthContext } from '../hooks/useAuthContext'
 
 import HealthDetails from '../components/HealthDetails'
+import EntryForm from '../components/EntryForm'
 
 const Home = () => {
 
@@ -34,6 +35,7 @@ const Home = () => {
                     <HealthDetails key={health._id} health={health} />
                 ))}
             </div>
+            <EntryForm />
         </div>
     )
 }
