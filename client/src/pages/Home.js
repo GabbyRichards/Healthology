@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useEntryContext } from '../hooks/useEntryContext'
 import { useAuthContext } from '../hooks/useAuthContext'
 
@@ -26,7 +26,7 @@ const Home = () => {
         if (user) {
             fetchHealthData()
         }
-    }, [user])
+    }, [dispatch, user])
 
     return (
         <div className="home">

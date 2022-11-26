@@ -1,6 +1,6 @@
 import {useEntryContext} from '../hooks/useEntryContext'
 import { useAuthContext } from '../hooks/useAuthContext'
-//import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 
 const HealthDetails = ({health}) => {
     const {dispatch} = useEntryContext()
@@ -30,8 +30,7 @@ const HealthDetails = ({health}) => {
             <p><strong>Height: </strong>{health.height}</p>
             <p><strong>Weight: </strong>{health.weight}</p>
             <p><strong>Sex: </strong>{health.sex}</p>
-            <p>{health.createdAt}</p>
-            <span onClick={handleClick}>delete</span>
+            <p>{formatDistanceToNow(new Date(health.createdAt), {addSuffix: true})}</p>
             <span className='material-symbols-outlined' onClick={handleClick}>delete</span>
         </div>
     )
