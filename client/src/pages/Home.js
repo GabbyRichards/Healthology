@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
+import { useEntryContext } from '../hooks/useEntryContext'
 import { useAuthContext } from '../hooks/useAuthContext'
 
 import HealthDetails from '../components/HealthDetails'
 import EntryForm from '../components/EntryForm'
 
 const Home = () => {
-
-    const [healthData, setHealthData] = useState(null)
+    const {healthData, dispatch} = useEntryContext()
     const {user} = useAuthContext()
 
     useEffect(() => {
@@ -19,7 +19,7 @@ const Home = () => {
             const json = await response.json()
 
             if (response.ok) {
-                setHealthData(json)
+                dispatch({type: 'SET_ENTRIES', payload: json})
             }
         }
 

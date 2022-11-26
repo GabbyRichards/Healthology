@@ -1,6 +1,8 @@
 import { useState } from "react"
+import { useEntryContext } from "../hooks/useEntryContext"
 
 const EntryForm = () => {
+    const {dispatch} = useEntryContext()
     const [age, setAge] = useState ('')
     const [height, setHeight] = useState ('')
     const [weight, setWeight] = useState ('')
@@ -32,6 +34,7 @@ const EntryForm = () => {
             setSex('')
             setError(null)
             console.log('New entry added', json)
+            dispatch({type: 'CREATE_ENTRY', payload: json})
         }
     }
 
