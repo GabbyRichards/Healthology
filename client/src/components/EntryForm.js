@@ -8,6 +8,7 @@ const EntryForm = () => {
     const [weight, setWeight] = useState ('')
     const [sex, setSex] = useState ('')
     const [error, setError] = useState (null)
+    const [emptyFields, setEmptyFields] = useState([])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -26,6 +27,7 @@ const EntryForm = () => {
 
         if (!response.ok) {
             setError(json.error)
+            setEmptyFields(json.emptyFields)
         }
         if (response.ok) {
             setAge('')
@@ -33,6 +35,7 @@ const EntryForm = () => {
             setWeight('')
             setSex('')
             setError(null)
+            setEmptyFields([])
             console.log('New entry added', json)
             dispatch({type: 'CREATE_ENTRY', payload: json})
         }
@@ -47,6 +50,7 @@ const EntryForm = () => {
                 type="number"
                 onChange={(e) => setAge(e.target.value)}
                 value={age}
+                className={emptyFields.includes('age') ? 'error' : ''}
             />
 
             <label>Height (in cm):</label>
@@ -54,6 +58,7 @@ const EntryForm = () => {
                 type="number"
                 onChange={(e) => setHeight(e.target.value)}
                 value={height}
+                className={emptyFields.includes('height') ? 'error' : ''}
             />
 
             <label>Weight (in lbs):</label>
@@ -61,6 +66,7 @@ const EntryForm = () => {
                 type="number"
                 onChange={(e) => setWeight(e.target.value)}
                 value={weight}
+                className={emptyFields.includes('weight') ? 'error' : ''}
             />
 
             <label>Sex (F/M):</label>
@@ -68,6 +74,7 @@ const EntryForm = () => {
                 type="text"
                 onChange={(e) => setSex(e.target.value)}
                 value={sex}
+                className={emptyFields.includes('sex') ? 'error' : ''}
             />
 
             <button>Submit Entry</button>
