@@ -1,7 +1,9 @@
 import { useAuthContext } from "./useAuthContext"
+import { useEntryContext } from "./useEntryContext"
 
 export const useLogout = () => {
     const {dispatch} = useAuthContext()
+    const {dispatch: entryDispatch} = useEntryContext()
 
     const logout = () => {
 
@@ -10,6 +12,7 @@ export const useLogout = () => {
 
         //update global state
         dispatch({type: 'LOGOUT'})
+        entryDispatch({type: 'SET_ENTRIES', payload: null})
     }
 
     return {logout}

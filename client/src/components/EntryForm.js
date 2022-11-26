@@ -1,8 +1,10 @@
 import { useState } from "react"
 import { useEntryContext } from "../hooks/useEntryContext"
+import { useAuthContext} from '../hooks/useAuthContext'
 
 const EntryForm = () => {
     const {dispatch} = useEntryContext()
+    const {user} = useAuthContext()
     const [age, setAge] = useState ('')
     const [height, setHeight] = useState ('')
     const [weight, setWeight] = useState ('')
@@ -13,13 +15,19 @@ const EntryForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
+        if (!user) {
+            setError('You must be logged in')
+            return
+        }
+
         const entry = {age, height, weight, sex}
 
         const response = await fetch('/api/healthData', {
             method: 'POST',
             body: JSON.stringify(entry),
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${user.token}`
             }
         })
 
@@ -36,7 +44,6 @@ const EntryForm = () => {
             setSex('')
             setError(null)
             setEmptyFields([])
-            console.log('New entry added', json)
             dispatch({type: 'CREATE_ENTRY', payload: json})
         }
     }
