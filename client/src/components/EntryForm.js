@@ -5,10 +5,12 @@ import { useAuthContext} from '../hooks/useAuthContext'
 const EntryForm = () => {
     const {dispatch} = useEntryContext()
     const {user} = useAuthContext()
+
     const [age, setAge] = useState ('')
     const [height, setHeight] = useState ('')
     const [weight, setWeight] = useState ('')
     const [sex, setSex] = useState ('')
+
     const [error, setError] = useState (null)
     const [emptyFields, setEmptyFields] = useState([])
 
@@ -85,7 +87,7 @@ const EntryForm = () => {
             />
 
             <button>Submit Entry</button>
-            {error && <div className="error">error</div>}
+            {error && <div className="error">{error}</div>}
         </form>
     )
 }

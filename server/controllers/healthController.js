@@ -53,7 +53,7 @@ const createEntry = async (req, res) => {
 
     try {
         const user_id = req.user_id
-        const health = await Health.create({age, height, weight, sex})
+        const health = await Health.create({age, height, weight, sex, user_id})
         res.status(200).json(health)
     } catch (error) {
         res.status(400).json({error: error.message})
