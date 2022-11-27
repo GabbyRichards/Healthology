@@ -5,10 +5,10 @@ const {
     getEntry,
     deleteEntry,
     updateEntry
-} = require('../controllers/healthController')
+} = require('../controllers/entryController')
 const requireAuth = require('../middleware/requireAuth')
 
-//require auth for all healthData routes
+//require auth for all entries routes
 const router = express.Router()
 
 router.use(requireAuth)

@@ -1,4 +1,4 @@
-import {EntryContext} from "../context/EntryContext"
+import {EntryContext} from '../context/EntryContext'
 import {useContext} from 'react'
 
 export const useEntryContext = () => {

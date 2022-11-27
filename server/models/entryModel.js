@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 
-const healthSchema = new Schema({
+const entrySchema = new Schema({
     age:{
        type: Number,
        required: true
@@ -25,4 +25,4 @@ const healthSchema = new Schema({
     }
 }, { timestamps: true })
 
-module.exports = mongoose.model('Health', healthSchema)
+module.exports = mongoose.model('Entry', entrySchema)
