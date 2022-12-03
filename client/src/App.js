@@ -1,38 +1,44 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { useAuthContext } from './hooks/useAuthContext'
 
+import * as React from 'react'
 import Home from './pages/Home'
 import Appbar from "./Appbar"
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Navbar from './components/Navbar'
-import Logon from './pages/Logon'
+import Login2 from './pages/Login2'
 import Signup2 from './pages/Signup2'
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+const theme = createTheme()
 
 function App() {
   const {user} = useAuthContext()
   return (
-    <div className="App">  
-      <BrowserRouter>
-        <Navbar/>
-        <div className='pages'>
-          <Routes>
-            <Route
-              path="/"
-              element={user ? <Home /> : <Navigate to= "/login" />}
-              />
+    <ThemeProvider theme={theme}>
+      <div className="App">  
+        <BrowserRouter>
+          <Navbar/>
+          <div className='pages'>
+            <Routes>
               <Route
-              path="/login"
-              element={!user ? <Login /> : <Navigate to="/" />}
-              />
-              <Route
-              path="/signup"
-              element={!user ? <Signup /> : <Navigate to="/" />}
-              />
-          </Routes>
-        </div>
-      </BrowserRouter>
-    </div>
+                path="/"
+                element={user ? <Home /> : <Navigate to= "/login" />}
+                />
+                <Route
+                path="/login"
+                element={!user ? <Login2 /> : <Navigate to="/" />}
+                />
+                <Route
+                path="/signup"
+                element={!user ? <Signup2 /> : <Navigate to="/" />}
+                />
+            </Routes>
+          </div>
+        </BrowserRouter>
+      </div>
+    </ThemeProvider>
   );
 }
 

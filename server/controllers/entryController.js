@@ -1,7 +1,7 @@
 const Entry = require('../models/entryModel')
 const mongoose = require('mongoose')
 
-// get all workouts
+// get all entries
 const getEntries = async (req, res) => {
   const user_id = req.user._id
 
@@ -10,7 +10,7 @@ const getEntries = async (req, res) => {
   res.status(200).json(entries)
 }
 
-// get a single workout
+// get entry
 const getEntry = async (req, res) => {
   const { id } = req.params
 
@@ -28,7 +28,7 @@ const getEntry = async (req, res) => {
 }
 
 
-// create new workout
+// create entry
 const createEntry = async (req, res) => {
   const {age, height, weight, sex} = req.body
 
@@ -50,7 +50,6 @@ const createEntry = async (req, res) => {
     return res.status(400).json({ error: 'Please fill in all the fields', emptyFields })
   }
 
-  // add doc to db
   try {
     const user_id = req.user._id
     const entry = await Entry.create({age, height, weight, sex, user_id})
@@ -60,7 +59,7 @@ const createEntry = async (req, res) => {
   }
 }
 
-// delete a workout
+// delete entry
 const deleteEntry = async (req, res) => {
   const { id } = req.params
 
@@ -77,7 +76,7 @@ const deleteEntry = async (req, res) => {
   res.status(200).json(entry)
 }
 
-// update a workout
+// update entry
 const updateEntry = async (req, res) => {
   const { id } = req.params
 
