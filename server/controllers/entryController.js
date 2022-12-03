@@ -15,13 +15,13 @@ const getEntry = async (req, res) => {
   const { id } = req.params
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({error: 'No such entry'})
+    return res.status(404).json({error: 'No such entry.'})
   }
 
   const entry = await Entry.findById(id)
 
   if (!entry) {
-    return res.status(404).json({error: 'No such entry'})
+    return res.status(404).json({error: 'No such entry.'})
   }
   
   res.status(200).json(entry)
@@ -47,7 +47,7 @@ const createEntry = async (req, res) => {
     emptyFields.push('sex')
   }
   if(emptyFields.length > 0) {
-    return res.status(400).json({ error: 'Please fill in all the fields', emptyFields })
+    return res.status(400).json({ error: 'Please fill in all the fields.', emptyFields })
   }
 
   try {
@@ -64,13 +64,13 @@ const deleteEntry = async (req, res) => {
   const { id } = req.params
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({error: 'No such entry'})
+    return res.status(404).json({error: 'No such entry.'})
   }
 
   const entry = await Entry.findOneAndDelete({_id: id})
 
   if (!entry) {
-    return res.status(400).json({error: 'No such entry'})
+    return res.status(400).json({error: 'No such entry.'})
   }
 
   res.status(200).json(entry)
@@ -81,7 +81,7 @@ const updateEntry = async (req, res) => {
   const { id } = req.params
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({error: 'No such entry'})
+    return res.status(404).json({error: 'No such entry.'})
   }
 
   const entry = await Entry.findOneAndUpdate({_id: id}, {
@@ -89,7 +89,7 @@ const updateEntry = async (req, res) => {
   })
 
   if (!entry) {
-    return res.status(400).json({error: 'No such entry'})
+    return res.status(400).json({error: 'No such entry.'})
   }
 
   res.status(200).json(entry)
