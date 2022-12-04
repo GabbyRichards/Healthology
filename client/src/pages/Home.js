@@ -1,3 +1,4 @@
+import * as React from 'react'
 import { useEffect } from 'react'
 import { useEntryContext } from '../hooks/useEntryContext'
 import { useAuthContext } from '../hooks/useAuthContext'

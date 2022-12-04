@@ -3,7 +3,7 @@
 
 /* layout */
 :root {
-  --primary: #1aac83;
+  --primary: #000000;
   --error: #e7195a;
 }
 body {
@@ -23,7 +23,7 @@ header .container {
   justify-content: space-between;
 }
 header a {
-  color: #333;
+  color: rgb(0, 0, 0);
   text-decoration: none;
 }
 .pages{
@@ -67,7 +67,7 @@ header a {
   color: #333;
 }
 
-/* new workout form */
+/* new entry form */
 label, input {
   display: block;
 }
