@@ -24,30 +24,32 @@ function calculateBMI(){
     else if(weight == "" || weight <= 0 || isNaN(weight)){
         result.innerHTML = "Provide a valid weight in lbs."
     }
-    //this is the calculated bmi 
-    let bmi = ((weight/2.205)/((height*height)/10000)).toFixed(2)
-    //the following if-statements will check the range that the bmi falls into
-    //and will tell the user where their bmi lies in (the category)
-    if(bmi < 16.00){
-        result.innerHTML = `Severely Underweight: <span>${bmi}</span>`
-    }
-    else if(bmi <= 18.4){
-        result.innerHTML = `Underweight: <span>${bmi}</span>`
-    }
-    else if(bmi <= 24.9){
-        result.innerHTML = `Normal: <span>${bmi}</span>`
-    }
-    else if(bmi <= 29.9){
-        result.innerHTML = `Overweight: <span>${bmi}</span>`
-    }
-    else if(bmi <= 34.9){
-        result.innerHTML = `Moderately Obese: <span>${bmi}</span>`
-    }
-    else if(bmi <= 39.9){
-        result.innerHTML = `Severely Obsese: <span>${bmi}</span>`
-    }
-    else {
-        result.innerHTML = `Morbidly Obese: <span>${bmi}</span>`
+    else{
+        //this is the calculated bmi 
+        let bmi = ((weight/2.205)/((height*height)/10000)).toFixed(2)
+        //the following if-statements will check the range that the bmi falls into
+        //and will tell the user where their bmi lies in (the category)
+        if(bmi < 16.00){
+            result.innerHTML = `Severely Underweight: <span>${bmi}</span>`
+        }
+        else if(bmi <= 18.4){
+            result.innerHTML = `Underweight: <span>${bmi}</span>`
+        }
+        else if(bmi <= 24.9){
+            result.innerHTML = `Normal: <span>${bmi}</span>`
+        }
+        else if(bmi <= 29.9){
+            result.innerHTML = `Overweight: <span>${bmi}</span>`
+        }
+        else if(bmi <= 34.9){
+            result.innerHTML = `Moderately Obese: <span>${bmi}</span>`
+        }
+        else if(bmi <= 39.9){
+            result.innerHTML = `Severely Obsese: <span>${bmi}</span>`
+        }
+        else {
+            result.innerHTML = `Morbidly Obese: <span>${bmi}</span>`
+        }
     }
 }
 
