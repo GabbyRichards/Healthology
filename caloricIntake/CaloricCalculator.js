@@ -4,7 +4,7 @@ document.getElementById('calorie-form').addEventListener('submit', function(e)
   
     document.getElementById('loading').style.display = 'block';
   
-    setTimeout(calculateCalories, 2000);
+    setTimeout(calculateCalories, 2000); //set timeout for error
   
     e.preventDefault();
 });
