@@ -9,7 +9,7 @@
 body {
   background: #f1f1f1;
   margin: 0;
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
 }
 header {
   background: #fff;
@@ -85,7 +85,7 @@ form button {
   border: 0;
   color: #fff;
   padding: 10px;
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   border-radius: 4px;
   cursor: pointer;
 }
@@ -115,7 +115,7 @@ nav button {
   border: 2px solid var(--primary);
   padding: 6px 10px;
   border-radius: 4px;
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   cursor: pointer;
   font-size: 1em;
 }
