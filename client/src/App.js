@@ -10,6 +10,9 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const theme = createTheme()
 
+//routes the user to the correct pages
+//if the user is valid, bring them to the homepage. else, bring them to the login page
+//if the user is invalud, link them to the login and signup pages
 function App() {
   const {user} = useAuthContext()
   return (

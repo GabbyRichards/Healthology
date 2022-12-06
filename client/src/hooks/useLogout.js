@@ -1,6 +1,7 @@
 import { useAuthContext } from "./useAuthContext"
 import { useEntryContext } from "./useEntryContext"
 
+//function that is called when the user logs out of the application
 export const useLogout = () => {
     const {dispatch} = useAuthContext()
     const {dispatch: dispatchEntries} = useEntryContext()
@@ -14,5 +15,6 @@ export const useLogout = () => {
         dispatchEntries({type: 'SET_ENTRIES', payload: null})
     }
 
+    //returns logout state
     return {logout}
 }

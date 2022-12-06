@@ -1,3 +1,5 @@
+//SIGNUP PAGE INSPIRED BY THE NET NINJA MERN STACK CRASH COURSE ON YOUTUBE https://youtu.be/98BzS5Oz5E4
+//THIS FILE IS CURRENTLY NOT USED WITHIN OUR APPLICATION
 import {useState} from 'react'
 import {useSignup} from '../hooks/useSignup'
 

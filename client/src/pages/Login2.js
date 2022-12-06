@@ -1,3 +1,4 @@
+//LOGIN PAGE INSPIRED BY THE NET NINJA MERN STACK CRASH COURSE ON YOUTUBE https://youtu.be/98BzS5Oz5E4 and material ui https://mui.com/
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -13,6 +14,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {useState} from 'react'
 import {useLogin} from '../hooks/useLogin'
 
+//displays website copyright at the bottom of the login page
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -29,15 +31,19 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignIn() {
+  //fetches the user's email and password as well as the login state
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const {login, error, isLoading} = useLogin()
 
+  //handles user login action
   const handleSubmit = async (event) => {
     event.preventDefault();
     await login(email, password)
   };
 
+  //returns a form that takes in a user's username and password, logging them in if the data is correct
+  //an error will be output if the login data is incorrect
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">

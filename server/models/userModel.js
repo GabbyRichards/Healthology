@@ -6,6 +6,7 @@ const validator = require('validator')
 
 const Schema = mongoose.Schema
 
+//creates the user schema for MongoDB
 const userSchema = new Schema({
     email: {
         type: String,
@@ -34,6 +35,7 @@ userSchema.statics.signup = async function(email, password) {
 
     const exists = await this.findOne({email})
 
+    //if the input email already exists, require the user to enter another email
     if (exists){
         throw Error('Email already in use.')
     }
@@ -51,18 +53,23 @@ userSchema.statics.signup = async function(email, password) {
 
 //login method
 userSchema.statics.login = async function(email, password) {
+    //if either of the authentication fields are empty, throw an error
     if (!email || !password){
         throw Error('All fields must be filled.')
     }
 
+    //find the user based on their email address
     const user = await this.findOne({email})
 
+    //if the user's email does not exist, throw an error statement
     if (!user){
         throw Error('Incorrect email.')
     }
 
+    //compare the user's entered password with the password stored in MongoDB at the given email address
     const match = await bcrypt.compare(password, user.password)
 
+    //if the passwords do not match, throw an error
     if (!match) {
         throw Error('Incorrect password.')
     }

@@ -1,6 +1,7 @@
 const User = require('../models/userModel')
 const jwt = require('jsonwebtoken')
 
+//creates json web token to verify user connection
 const createToken = (_id) => {
   return jwt.sign({_id}, process.env.SECRET, { expiresIn: '1d' })
 }
