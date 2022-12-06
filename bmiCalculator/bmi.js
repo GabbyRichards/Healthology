@@ -3,6 +3,7 @@ here is the signal for the function to start.
 It will detect the button from index.html being clicked 
 */
 window.onload = () => {
+    //this is the line that creates the button variable which connects to the button in index.html
     let button = document.querySelector("#btn")
     button.addEventListener("click", calculateBMI)
 }
