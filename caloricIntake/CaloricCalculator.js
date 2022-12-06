@@ -50,7 +50,7 @@ document.getElementById('calorie-form').addEventListener('submit', function(e)
     setTimeout(clearError, 4000);
   }
     
-  function clearError() 
+  function clearError() //clear error
   {
     document.querySelector('.alert').remove();
   }
