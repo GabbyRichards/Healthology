@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang = "en">
 
+<!--this is general information: basically just the title and what file it is drawing the "function" part of the calculator from-->
 <head>
     <script src = "bmi.js"></script>
     <title>bmi calculator</title>
 </head>
 
+<!--this is the display: it is where the headings and "enter" boxes are formatted, alongside the button-->
 <body>
     <div class = "container">
+        <!--this is the heading on top-->
         <hi>BMI Calculator</hi>
         
+        <!--this is where the box where the user's height is entered is created-->
         <p>Height (in cm)</p>
         <input type = "text" id = "height">
         
+        <!--this is where the box where the user's weight is entered is created-->
         <p>Weight (in lbs)</p>
         <input type = "text" id = "weight">
         
+        <!--this is the "magic button": this is where the button that signals the start of the calculator function is created-->
         <button id = "btn">Calculate BMI</button>
         <div id = "result"></div>
     </div>
