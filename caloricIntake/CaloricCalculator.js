@@ -1,4 +1,5 @@
-document.getElementById('calorie-form').addEventListener('submit', function(e){
+document.getElementById('calorie-form').addEventListener('submit', function(e)
+{
     document.getElementById('results').style.display = 'none';
   
     document.getElementById('loading').style.display = 'block';
@@ -6,7 +7,7 @@ document.getElementById('calorie-form').addEventListener('submit', function(e){
     setTimeout(calculateCalories, 2000);
   
     e.preventDefault();
-  });
+});
   
   function calculateCalories(e) 
   {
@@ -14,29 +15,29 @@ document.getElementById('calorie-form').addEventListener('submit', function(e){
     const height = document.getElementById('height'); //height element variable
     const age = document.getElementById('age'); //age element variable
     const gender = document.querySelector('input[name="customRadioInline1"]:checked'); //gender element variable
-    const totalCalories = document.getElementById('total-calories'); //total calorie variable
+    const totalCalories = document.getElementById('total-calories'); //sun of total calories variable
     
     
     if (age.value === '' || weight.value === '' || height.value === '' ||  age.value > 80 || age.value < 15) 
     {
-      errorMessage('Please make sure the values you entered are correct')
+      errorMessage('Please make sure the values you entered are correct') //Displays error if user does not input variable
     } 
-    else if(gender.id === 'male') 
+    else if(gender.id === 'male')  //male gender Harris Benedict equation
     {
       totalCalories.value = (88.362 + (13.397 * parseFloat(weight.value)) + (4.799 * parseFloat(height.value)) - (5.677 * parseFloat(age.value)));
     } 
-    else if(gender.id === 'female') 
+    else if(gender.id === 'female') //female gender Harris Benedict equation
     {
       totalCalories.value = (447.593 + (9.247 * parseFloat(weight.value)) + (3.098 * parseFloat(height.value)) - (4.330 * parseFloat(age.value)));
     }
   
-    document.getElementById('results').style.display = 'block';
+    document.getElementById('results').style.display = 'block'; //displays results
   
-    document.getElementById('loading').style.display = 'none';
+    document.getElementById('loading').style.display = 'none'; //displays loading sequence
   }
   
   
-  function errorMessage(error) 
+  function errorMessage(error)  //error catching
   {
     document.getElementById('results').style.display = 'none';
     document.getElementById('loading').style.display = 'none';
@@ -52,4 +53,4 @@ document.getElementById('calorie-form').addEventListener('submit', function(e){
   function clearError() 
   {
     document.querySelector('.alert').remove();
-  } //This is my code
+  }
