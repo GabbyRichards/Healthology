@@ -4,7 +4,7 @@ document.getElementById('calorie-form').addEventListener('submit', function(e)
   
     document.getElementById('loading').style.display = 'block';
   
-    setTimeout(calculateCalories, 2000);
+    setTimeout(calculateCalories, 2000); //set timeout for error
   
     e.preventDefault();
 });
@@ -50,7 +50,7 @@ document.getElementById('calorie-form').addEventListener('submit', function(e)
     setTimeout(clearError, 4000);
   }
     
-  function clearError() 
+  function clearError() //clear error
   {
     document.querySelector('.alert').remove();
   }
