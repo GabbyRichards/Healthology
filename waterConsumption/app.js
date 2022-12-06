@@ -10,11 +10,11 @@ function calculateWaterIntake() {
     let amount = parseInt(document.querySelector("#quantity").value);
     let result = document.querySelector("#result");
 
-    if(weight === "" || isNaN(weight) || weight < 0) {
+    if(weight == "" || isNaN(weight) || weight < 0) {
         result.innerHTML = "Error: Invalid weight entered.";
     }
 
-    else if(amount === "" || isNaN(amount) || amount < 0) {
+    else if(amount == "" || isNaN(amount) || amount < 0) {
         result.innerHTML = "Error: Invalid water consumption value entered.";
     }
 
