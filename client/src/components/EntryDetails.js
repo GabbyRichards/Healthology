@@ -1,6 +1,6 @@
 import { useEntryContext } from '../hooks/useEntryContext'
 import { useAuthContext } from '../hooks/useAuthContext'
-import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+//import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 
 const EntryDetails = ({ entry }) => {
   const { dispatch } = useEntryContext()
@@ -28,13 +28,14 @@ const EntryDetails = ({ entry }) => {
   }
 
   //returns the data that the user has entered into our entry database
+  //<p>{formatDistanceToNow(new Date(entry.createdAt), {addSuffix: true})}</p> (add after data to format time)
   return (
     <div className="entry-details">
       <p><strong>Age: </strong>{entry.age}</p>
       <p><strong>Height: </strong>{entry.height}</p>
       <p><strong>Weight: </strong>{entry.weight}</p>
       <p><strong>Sex: </strong>{entry.sex}</p>
-      <p>{formatDistanceToNow(new Date(entry.createdAt), {addSuffix: true})}</p>
+      <p>{entry.createdAt}</p>
       <span className='material-symbols-outlined' onClick={handleClick}>delete</span>
     </div>
   )
