@@ -3,9 +3,6 @@ import { useAuthContext } from './hooks/useAuthContext'
 
 import * as React from 'react'
 import Home from './pages/Home'
-import Appbar from "./Appbar"
-import Login from './pages/Login'
-import Signup from './pages/Signup'
 import Navbar from './components/Navbar'
 import Login2 from './pages/Login2'
 import Signup2 from './pages/Signup2'
