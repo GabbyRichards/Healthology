@@ -5,6 +5,8 @@ window.onload = () => {
     button.addEventListener("click", calculateWaterIntake);
 };
 
+// This function calculates water intake
+
 function calculateWaterIntake() {
     
     //Weight variable
@@ -37,7 +39,7 @@ function calculateWaterIntake() {
 
     
     //If all is well, computs how many more ounces of water a user needs to drink today
-    
+
     else {
         let waterIntake = (weight * 0.5) - amount;
 
