@@ -1,3 +1,4 @@
+// load event
 window.onload = () => {
     let button = document.querySelector("#btn");
   
