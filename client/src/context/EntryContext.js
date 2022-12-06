@@ -1,7 +1,10 @@
 import { createContext, useReducer } from 'react'
 
+//creates context for every user entry and manages the global state
 export const EntryContext = createContext()
 
+//defines three actions: set, create, and delete
+//these actions will be dispatch when the user deletes and creates a new entry
 export const entriesReducer = (state, action) => {
   switch (action.type) {
     case 'SET_ENTRIES': 

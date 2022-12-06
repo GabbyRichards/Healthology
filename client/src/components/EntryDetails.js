@@ -6,11 +6,13 @@ const EntryDetails = ({ entry }) => {
   const { dispatch } = useEntryContext()
   const { user } = useAuthContext()
 
+  //deletes a user's entry when the user clicks on the trash icon
   const handleClick = async () => {
     if (!user) {
       return
     }
 
+    //fetches the entry that needs to be deleted
     const response = await fetch('/api/entries/' + entry._id, {
       method: 'DELETE',
       headers: {
@@ -19,11 +21,13 @@ const EntryDetails = ({ entry }) => {
     })
     const json = await response.json()
 
+    //if the response is valid, dispatch an action that deletes the user's selected entry
     if (response.ok) {
       dispatch({type: 'DELETE_ENTRY', payload: json})
     }
   }
 
+  //returns the data that the user has entered into our entry database
   return (
     <div className="entry-details">
       <p><strong>Age: </strong>{entry.age}</p>

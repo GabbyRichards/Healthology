@@ -13,6 +13,10 @@ const router = express.Router()
 
 router.use(requireAuth)
 
+//routes for all entry functions
+//those with '/' get all user entries from the MongoDB database
+//those with '/:id' get a specific entry based on id
+
 router.get('/', getEntries)
 
 router.get('/:id', getEntry)

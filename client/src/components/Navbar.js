@@ -7,13 +7,18 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 const theme = createTheme()
 
 const Navbar = () => {
+    //fetches the logout function and current user state
     const {logout} = useLogout()
     const {user} = useAuthContext()
 
+    //dispatches logout function if the user clicks "logout"
     const handleClick = () => {
         logout()
     }
 
+    //if the user is logged in, displays the website title and a logout button
+    //if the user is logged out, displays the website title, login button, and sign up button
+    //the buttons link to their respective authentication pages
     return (
         <ThemeProvider theme={theme}>
             <header>

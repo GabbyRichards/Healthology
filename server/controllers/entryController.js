@@ -28,7 +28,7 @@ const getEntry = async (req, res) => {
 }
 
 
-// create entry
+// create entry and checks if any fields were left empty by the user
 const createEntry = async (req, res) => {
   const {age, height, weight, sex} = req.body
 
@@ -50,6 +50,7 @@ const createEntry = async (req, res) => {
     return res.status(400).json({ error: 'Please fill in all the fields.', emptyFields })
   }
 
+  //creates an entry that is matched with the user's id
   try {
     const user_id = req.user._id
     const entry = await Entry.create({age, height, weight, sex, user_id})

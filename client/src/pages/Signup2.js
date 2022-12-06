@@ -1,3 +1,4 @@
+//LOGIN PAGE INSPIRED BY THE NET NINJA MERN STACK CRASH COURSE ON YOUTUBE https://youtu.be/98BzS5Oz5E4 and material ui https://mui.com/
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -13,6 +14,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {useState} from 'react'
 import {useSignup} from '../hooks/useSignup'
 
+//displays website copyright at the bottom of the sign up page
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -29,15 +31,20 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignUp() {
+  //fetches the user's email and password as well as the signup state
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const {signup, error, isLoading} = useSignup()
 
+  //handles user signup action
   const handleSubmit = async (event) => {
     event.preventDefault();
     await signup(email,password)
   };
 
+  //returns a form that takes in a user's username and password, putting it into MongoDB's user database
+  //outputs an error if the email is not valid or already in use
+  //outputs an error if the password does not meet the required specifications 
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">

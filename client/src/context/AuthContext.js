@@ -1,8 +1,10 @@
 import {createContext, useReducer, useEffect} from 'react'
 
+//creates a context for authorization purposes
 export const AuthContext = createContext()
 
 export const authReducer = (state, action) => {
+    //these are the two action types that a user can dispatch during authentication
     switch (action.type) {
         case 'LOGIN':
             return {user: action.payload}
@@ -18,6 +20,7 @@ export const AuthContextProvider = ({children}) => {
         user: null
     })
 
+    //if the user is valid, dispatch login
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem('user'))
         if (user) {

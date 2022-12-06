@@ -7,9 +7,11 @@ import EntryDetails from '../components/EntryDetails'
 import EntryForm from '../components/EntryForm'
 
 const Home = () => {
+    //fetches entries, dispatch actions, and user state
     const {entries, dispatch} = useEntryContext()
     const {user} = useAuthContext()
 
+    //accesses the user's entries if they are correctly authorized
     useEffect(() => {
         const fetchEntries = async () => {
             const response = await fetch('/api/entries', {
@@ -27,6 +29,7 @@ const Home = () => {
         }
     }, [dispatch, user])
 
+    //fetches entries by their id in MongoDB
     return (
         <div className="home">
             <div className='entries'>
